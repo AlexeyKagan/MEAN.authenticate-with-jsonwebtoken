@@ -1,0 +1,40 @@
+<div class="row col-md-6 col-md-offset-3">
+
+
+
+    <div class="jumbotron">
+        <h1>Signup</h1>
+
+        <form ng-submit="signup.signup()">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" ng-model="signup.name">
+            </div>
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" ng-model="signup.username">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" ng-model="signup.password">
+            </div>
+
+
+
+            <!-- button-->
+            <button type="submit" class="btn btn-block btn-primary">
+                <span>signup</span>
+                <!--     <span  class="spinner"><span class="glyphicon glyphicon-repeat"></span></span> -->
+            </button>
+            <br/>
+            <!-- message -->
+            <div class="alert alert-danger" ng-if="signup.message">
+                {{ signup.message }}
+            </div>
+
+        </form>
+    </div>
+
+</div>
