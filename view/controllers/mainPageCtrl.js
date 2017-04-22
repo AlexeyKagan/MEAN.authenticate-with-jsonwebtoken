@@ -3,14 +3,7 @@
  */
 
 angular.module('mainPageCtrl', ['userService'])
-    .controller('mainPageController', function($rootScope,$location,User,AuthToken){
-        var vm = this;
-
-
-        //if (!AuthToken.getToken()) $location.path('/');
-        if (!User.isLoggedIn()) $location.path('/');
-
-
-
-
-    });
+  .controller('mainPageController', function ($rootScope, $location, User) {
+    const vm = this;
+    if (!User.isLoggedIn()) $location.path('/');
+  });

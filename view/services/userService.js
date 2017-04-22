@@ -1,42 +1,28 @@
-angular.module('userService', []) //factory for everything
-
+angular.module('userService', [])
     .factory('User', function ($http, $q, AuthToken) {
-        var userFactory = {};
+        const userFactory = {};
 
-        userFactory.signupCreate = function (name, username, password) {
-            return $http.post('/api/signup', {
+        userFactory.signupCreate = (name, username, password) =>
+          $http.post('/api/signup', {
                 name: name,
                 username: username,
                 password: password
-            });
-        };
+          });
 
-        userFactory.DoLogin = function (username, password) {
-            return $http.post('/api/login', {
+        userFactory.DoLogin = (username, password) =>
+          $http.post('/api/login', {
                 username: username,
                 password: password
-            });
-        };
-        userFactory.doLogout = function () {
-            AuthToken.setToken();
+          });
 
-        };
-        userFactory.isLoggedIn = function () {
-            if (AuthToken.getToken()) {
-                return true;
-            }
-            else
-                return false;
-        };
+        userFactory.doLogout = () => AuthToken.setToken();
 
-
+        userFactory.isLoggedIn = () => AuthToken.getToken();
 
         return userFactory;
-
     })
-
     .factory('AuthToken', function ($window) {
-        var authTokenFactory = {};
+        const authTokenFactory = {};
         //get token from localstorage
         authTokenFactory.getToken = function () {
             return $window.localStorage.getItem('token');
@@ -51,10 +37,4 @@ angular.module('userService', []) //factory for everything
         };
 
         return authTokenFactory;
-
-
     });
-
-
-
-console.log('userService');

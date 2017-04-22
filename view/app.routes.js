@@ -23,6 +23,3 @@ angular.module('app.routes', ['ngRoute']) //angular routes
 
         $locationProvider.html5Mode(true);
     });
-
-
-console.log('app.routes');
